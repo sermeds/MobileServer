@@ -36,6 +36,11 @@ public class UserController {
         return avatarService.find(id);
     }
 
+    @GetMapping("/avatar/self")
+    public Avatar findAvatar(@AuthenticationPrincipal User user) {
+        return avatarService.find(user.getId());
+    }
+
     @GetMapping("/leaderboardByBalance")
     public List<User> getLeadersByBalance() {
         return service.leaderboardByBalance();

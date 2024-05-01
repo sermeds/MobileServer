@@ -16,10 +16,9 @@ public class Avatar {
     @Id
     private int id;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @OneToOne(cascade = CascadeType.MERGE)
     @MapsId
     @JoinColumn(name = "id")
-    @JsonIgnore
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
